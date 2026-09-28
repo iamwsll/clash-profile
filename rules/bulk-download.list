@@ -4,17 +4,36 @@
 # Keep authentication, web UI and metadata/API traffic on the normal route
 # where possible; this list focuses on payload transfer hosts.
 
-# Docker Hub image manifests and layer/blob transfer
+# Docker
 DOMAIN,registry-1.docker.io
 DOMAIN,production.cloudfront.docker.com
-
-# Legacy Docker blob CDN still seen by some clients/build paths
 DOMAIN,production.cloudflare.docker.com
 
-# Hugging Face storage/CDN infrastructure.
-# huggingface.co itself is intentionally NOT included, so Hub web/API traffic
-# stays on the normal policy. hf.co is the current storage/CDN namespace.
+# Hugging Face
 DOMAIN-SUFFIX,hf.co
-
-# Legacy Hugging Face LFS endpoint
 DOMAIN,cdn-lfs.huggingface.co
+
+# GitHub large payloads
+DOMAIN,release-assets.githubusercontent.com
+DOMAIN,objects.githubusercontent.com
+DOMAIN,objects-origin.githubusercontent.com
+DOMAIN,github-releases.githubusercontent.com
+DOMAIN,github-registry-files.githubusercontent.com
+
+# GitHub LFS
+DOMAIN,github-cloud.githubusercontent.com
+DOMAIN,github-cloud.s3.amazonaws.com
+
+# GitHub Packages / GHCR
+DOMAIN,ghcr.io
+DOMAIN,pkg-containers.githubusercontent.com
+DOMAIN-SUFFIX,pkg.github.com
+
+# Ollama model blobs
+DOMAIN,registry.ollama.ai
+
+# Python package payloads
+DOMAIN,files.pythonhosted.org
+
+# npm packages
+DOMAIN,registry.npmjs.org
