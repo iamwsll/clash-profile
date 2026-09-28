@@ -12,11 +12,12 @@ machines still need only one generated subscription URL.
 
 Base Mihomo configuration containing only stable client behavior:
 
-- encrypted DNS / DoH / DoT
+- domestic encrypted DNS only
 - no system DNS fallback
-- `redir-host` instead of FakeIP
-- TUN enabled
+- `fake-ip` mode
+- TUN enabled with DNS hijacking
 - Tailscale CGNAT range excluded from TUN routing
+- Tailscale MagicDNS sent to `100.100.100.100`
 
 It deliberately does **not** contain airport nodes, generated policy groups,
 or the normal ACL routing rules. Those belong to the subscription generator.
