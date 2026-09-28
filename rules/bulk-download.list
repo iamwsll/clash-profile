@@ -1,0 +1,20 @@
+# High-bandwidth / bulk-transfer traffic
+# Intended outbound: a cheap / high-bandwidth / low-multiplier node group.
+#
+# Keep authentication, web UI and metadata/API traffic on the normal route
+# where possible; this list focuses on payload transfer hosts.
+
+# Docker Hub image manifests and layer/blob transfer
+DOMAIN,registry-1.docker.io
+DOMAIN,production.cloudfront.docker.com
+
+# Legacy Docker blob CDN still seen by some clients/build paths
+DOMAIN,production.cloudflare.docker.com
+
+# Hugging Face storage/CDN infrastructure.
+# huggingface.co itself is intentionally NOT included, so Hub web/API traffic
+# stays on the normal policy. hf.co is the current storage/CDN namespace.
+DOMAIN-SUFFIX,hf.co
+
+# Legacy Hugging Face LFS endpoint
+DOMAIN,cdn-lfs.huggingface.co
