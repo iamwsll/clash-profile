@@ -50,7 +50,7 @@ dns:
   # Resolve proxy node hostnames with domestic encrypted DNS.
   proxy-server-nameserver:
     - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
+    - https://doh.360.cn/dns-query
 
   # Tailscale MagicDNS should bypass public resolvers and return real tailnet IPs.
   nameserver-policy:
