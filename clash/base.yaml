@@ -30,6 +30,8 @@ dns:
     - localhost.ptlogin2.qq.com
     - "*.msftncsi.com"
     - www.msftconnecttest.com
+    - "+.tailscale.com"
+    - "+.tailscale.io"
     - "+.tailscale.net"
     - "+.ts.net"
 
@@ -76,6 +78,7 @@ tun:
   # number can change. Excluding the tailnet address space is portable.
   route-exclude-address:
     - 100.64.0.0/10
+    - fd7a:115c:a1e0::/48
     - 192.200.0.0/24
 
 # Generated dynamically by sublink-worker.
