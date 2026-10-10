@@ -37,3 +37,10 @@ DOMAIN,files.pythonhosted.org
 
 # npm packages
 DOMAIN,registry.npmjs.org
+
+# PikPak file download CDN
+# Do not match the whole mypikpak.com domain: login, API and UI traffic
+# should remain on the normal route.
+DOMAIN-KEYWORD,dl-a10b-
+DOMAIN-KEYWORD,dl-z01a-
+DOMAIN-KEYWORD,dl-b07-
