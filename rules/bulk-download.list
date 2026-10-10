@@ -1,8 +1,8 @@
 # High-bandwidth / bulk-transfer traffic
 # Intended outbound: a cheap / high-bandwidth / low-multiplier node group.
 #
-# Keep authentication, web UI and metadata/API traffic on the normal route
-# where possible; this list focuses on payload transfer hosts.
+# Most rules target payload-transfer hosts. PikPak is intentionally an
+# exception: route its site, API and downloads through the same policy group.
 
 # Docker
 DOMAIN,registry-1.docker.io
@@ -38,9 +38,26 @@ DOMAIN,files.pythonhosted.org
 # npm packages
 DOMAIN,registry.npmjs.org
 
-# PikPak file download CDN
-# Do not match the whole mypikpak.com domain: login, API and UI traffic
-# should remain on the normal route.
+# PikPak — all known service domains and download infrastructure
+# Main domain list: https://github.com/v2fly/domain-list-community/blob/master/data/pikpak
+DOMAIN-SUFFIX,mypikpak.com
+DOMAIN-SUFFIX,mypikpak.net
+DOMAIN-SUFFIX,pickpackapp.com
+DOMAIN-SUFFIX,pikpak.io
+DOMAIN-SUFFIX,pikpak.me
+DOMAIN-SUFFIX,pikpakdrive.com
+
+# Supplementary hosts from blackmatrix7/ios_rule_script PikPak rules
+# Match specific sandai.net service hosts, not the entire shared parent domain.
+DOMAIN-KEYWORD,mypikpak
+DOMAIN-SUFFIX,dlandroid.rcv.sandai.net
+DOMAIN-SUFFIX,hub5idx.v6.shub.sandai.net
+DOMAIN-SUFFIX,hub5pn.wap.sandai.net
+DOMAIN-SUFFIX,hub5pnc.sandai.net
+DOMAIN-SUFFIX,hub5pr.v6.phub.sandai.net
+DOMAIN-SUFFIX,hubciddata.sandai.net
+
+# Community-observed PikPak file-download CDN hostname fragments
 DOMAIN-KEYWORD,dl-a10b-
 DOMAIN-KEYWORD,dl-z01a-
 DOMAIN-KEYWORD,dl-b07-
